@@ -56,10 +56,10 @@ export function Footer() {
         <div className="mt-12 pt-6 border-t border-border flex flex-col md:flex-row gap-4 items-start md:items-center justify-between text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} {CLINIC.name}. All rights reserved.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <Link to="/privacy" className="hover:text-tertiary">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-tertiary">Terms & Conditions</Link>
-            <Link to="/accessibility" className="hover:text-tertiary">Accessibility Notice</Link>
-            <Link to="/contact" className="hover:text-tertiary">Contact Us</Link>
+            <Link to="/privacy" onClick={() => window.scrollTo(0, 0)} className="hover:text-tertiary">Privacy Policy</Link>
+            <Link to="/terms" onClick={() => window.scrollTo(0, 0)} className="hover:text-tertiary">Terms & Conditions</Link>
+            <Link to="/accessibility" onClick={() => window.scrollTo(0, 0)} className="hover:text-tertiary">Accessibility Notice</Link>
+            <Link to="/contact" onClick={() => window.scrollTo(0, 0)} className="hover:text-tertiary">Contact Us</Link>
           </div>
         </div>
       </div>
