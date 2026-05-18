@@ -50,6 +50,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "GME Global Medical Excellence" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "GME Global Medical Excellence — Physician-Led Care in Las Vegas" },
+      { name: "twitter:title", content: "GME Global Medical Excellence — Physician-Led Care in Las Vegas" },
+      { property: "og:description", content: "A two-physician, fully board-certified primary care clinic in Las Vegas. Lifestyle medicine, addiction care, and longevity — delivered exclusively by doctors." },
+      { name: "twitter:description", content: "A two-physician, fully board-certified primary care clinic in Las Vegas. Lifestyle medicine, addiction care, and longevity — delivered exclusively by doctors." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea1c1790-afbd-4227-8601-6e74d22d0c68/id-preview-c95ab814--1348232d-65f2-4d57-a0f2-ce9ac74b907c.lovable.app-1779099084349.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ea1c1790-afbd-4227-8601-6e74d22d0c68/id-preview-c95ab814--1348232d-65f2-4d57-a0f2-ce9ac74b907c.lovable.app-1779099084349.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
