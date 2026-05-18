@@ -21,7 +21,7 @@ export function Header() {
   const [serviceOpen, setServiceOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -32,8 +32,8 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full transition-all duration-300",
-        scrolled ? "bg-background/85 backdrop-blur-lg border-b border-border shadow-soft" : "bg-background/40 backdrop-blur-sm"
+        "fixed top-0 z-40 w-full transition-all duration-300",
+        scrolled ? "bg-background/75 backdrop-blur-lg border-b border-border shadow-soft" : "bg-background/90 backdrop-blur-sm"
       )}
     >
       {/* top utility bar */}

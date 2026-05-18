@@ -5,9 +5,9 @@ import { CLINIC } from "@/lib/site-data";
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border bg-gradient-to-b from-background to-mist">
+    <footer className="border-t border-border bg-linear-to-b from-background to-mist">
       <div className="container mx-auto px-4 sm:px-6 py-14">
-        <div className="grid lg:grid-cols-12 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4 space-y-4">
             <Logo className="h-12 w-auto" />
             <p className="text-sm text-muted-foreground max-w-sm">
@@ -26,22 +26,31 @@ export function Footer() {
 
           <div className="lg:col-span-3 space-y-4">
             <h3 className="text-sm uppercase tracking-widest text-tertiary font-semibold">Visit Us</h3>
-            <div className="text-sm space-y-3 text-foreground/80">
-              <div className="flex gap-3"><MapPin className="size-4 mt-0.5 text-tertiary shrink-0" /><span>{CLINIC.address.line1}<br />{CLINIC.address.line2}</span></div>
+            <div className="text-sm space-y-6 text-foreground/80">
+              <div className="flex gap-3"><MapPin className="size-4 mt-0.5 text-tertiary shrink-0" /><span>{CLINIC.address.line1} <br /> {CLINIC.address.line2}</span></div>
               <div className="flex gap-3"><Mail className="size-4 mt-0.5 text-tertiary shrink-0" /><a className="hover:text-tertiary" href={`mailto:${CLINIC.email}`}>{CLINIC.email}</a></div>
               <div className="flex gap-3"><Clock className="size-4 mt-0.5 text-tertiary shrink-0" />
-                <div className="space-y-0.5">
+                <div className="space-y-2">
                   {CLINIC.hours.map((h) => (
-                    <div key={h.day} className="flex justify-between gap-4"><span>{h.day}</span><span className="text-muted-foreground">{h.time}</span></div>
+                    <div key={h.day} className="flex flex-col">
+                      {/* Day on top */}
+                      <span className="text-sm">
+                        {h.day}
+                      </span>
+                      {/* Time directly underneath */}
+                      <small className="text-xs text-muted-foreground tracking-wide mt-0.5">
+                        {h.time}
+                      </small>
+                    </div>
                   ))}
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="col-span-full lg:col-span-5">
             <h3 className="text-sm uppercase tracking-widest text-tertiary font-semibold mb-4">Find Us</h3>
-            <div className="rounded-2xl overflow-hidden border border-border shadow-soft aspect-[16/10]">
+            <div className="rounded-2xl overflow-hidden border border-border shadow-soft md:aspect-[16/8] aspect-[16/10]">
               <iframe
                 title="GME clinic location map"
                 src={CLINIC.mapEmbed}

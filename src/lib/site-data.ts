@@ -10,9 +10,9 @@ export const CLINIC = {
     line2: "Las Vegas, NV 89106",
   },
   hours: [
-    { day: "Mon – Thu", time: "8:00 AM – 5:00 PM" },
+    { day: "Monday – Thursday", time: "8:00 AM – 5:00 PM" },
     { day: "Friday", time: "8:00 AM – 3:00 PM" },
-    { day: "Sat – Sun", time: "Closed" },
+    { day: "Saturday – Sunday", time: "Closed" },
   ],
   mapEmbed:
     "https://www.google.com/maps?q=700+Shadow+Lane+Suite+165+Las+Vegas+NV+89106&output=embed",

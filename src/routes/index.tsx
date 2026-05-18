@@ -172,39 +172,87 @@ function HeroSlider() {
   );
 }
 
-/* ---------------- ABOUT ---------------- */
 function AboutSection() {
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-20 md:py-28 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-      <div className="lg:col-span-5 relative">
-        <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-card">
-          <img src={heroConsult} alt="Doctor talking with patient" className="size-full object-cover" loading="lazy" width={800} height={1000} />
-        </div>
-        <div className="absolute -bottom-6 -right-4 sm:-right-8 bg-card border border-border rounded-2xl shadow-card p-5 max-w-[16rem]">
-          <div className="text-xs uppercase tracking-widest text-tertiary font-semibold">Since day one</div>
-          <div className="font-display text-lg mt-1">Physician-owned. Patient-first.</div>
-        </div>
-      </div>
-      <div className="lg:col-span-7">
-        <p className="text-xs uppercase tracking-[0.3em] text-tertiary font-semibold">About GME</p>
-        <h2 className="mt-3 text-3xl md:text-5xl font-display leading-[1.1] text-balance">
-          The best medicine starts with a <span className="text-gradient">genuine connection.</span>
-        </h2>
-        <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed">
-          <p>
-            As a small group, two-physician-owned clinic, we've traded the big-commercial-corporate feel for a more personal approach to your care. Here, you aren't a chart number — you are a neighbor who deserves the focused attention of a doctor every single time you walk through our doors.
-          </p>
-          <p>
-            Our two fully board-certified physicians bring more than 30 years of combined experience. Beyond the clinic, they serve as Directors of Graduate Medical Education, mentoring the next generation of doctors who train alongside them.
-          </p>
-        </div>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link to="/about" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-tertiary text-tertiary-foreground font-semibold hover:opacity-95">
-            Read our full story <ArrowRight className="size-4" />
-          </Link>
-          <Link to="/physicians" className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-tertiary font-medium">
-            Meet the physicians
-          </Link>
+    <section className="relative py-20 md:py-28 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="relative grid lg:grid-cols-12 gap-0 items-center min-h-[620px]">
+
+          {/* ── Image col with gradient wipe ── */}
+          <div className="lg:col-span-5 relative h-[420px] lg:h-full">
+            {/* Bleeds to the left edge */}
+            <div className="absolute inset-y-0 right-0 left-[calc(-50vw+50%)] overflow-hidden">
+              <img
+                src={heroConsult}
+                alt="Doctor talking with patient"
+                className="absolute inset-0 size-full object-cover"
+                loading="lazy"
+                width={800}
+                height={1000}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-transparent" />
+
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-background" />
+            </div>
+          </div>
+
+          {/* ── Text col ── */}
+          <div className="lg:col-span-7 lg:pl-12 pt-8 lg:pt-0">
+            <p className="text-xs uppercase tracking-[0.3em] text-tertiary font-semibold">About GME</p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-display leading-[1.1] text-balance">
+              The best medicine starts with a{" "}
+              <span className="text-gradient">genuine connection.</span>
+            </h2>
+            <div className="mt-6 space-y-4 text-foreground/80 leading-relaxed">
+              <p>
+                As a small group, two-physician-owned clinic, we've traded the
+                big-commercial-corporate feel for a more personal approach to your
+                care. Here, you aren't a chart number — you are a neighbor who
+                deserves the focused attention of a doctor every single time you
+                walk through our doors.
+              </p>
+              <p>
+                Our two fully board-certified physicians bring more than 30 years
+                of combined experience. Beyond the clinic, they serve as Directors
+                of Graduate Medical Education, mentoring the next generation of
+                doctors who train alongside them.
+              </p>
+            </div>
+
+            {/* "card" content moved inline as a subtle stat row */}
+            <div className="mt-6 pt-6 border-t border-border flex items-center gap-6">
+              <div>
+                <div className="font-display text-2xl text-gradient">30+</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Years combined</div>
+              </div>
+              <div className="w-px h-8 bg-border" />
+              <div>
+                <div className="font-display text-2xl text-gradient">2</div>
+                <div className="text-xs text-muted-foreground mt-0.5">Board-certified MDs</div>
+              </div>
+              <div className="w-px h-8 bg-border" />
+              <div className="text-sm text-muted-foreground italic leading-snug max-w-[12rem]">
+                Physician-owned since day one.
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-tertiary text-tertiary-foreground font-semibold hover:opacity-95"
+              >
+                Read our full story <ArrowRight className="size-4" />
+              </Link>
+              <Link
+                to="/physicians"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-tertiary font-medium"
+              >
+                Meet the physicians
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -467,7 +515,7 @@ function TestimonialsStrip() {
 /* ---------------- CTA BAND ---------------- */
 function CtaBand() {
   return (
-    <section className="container mx-auto px-4 sm:px-6 pt-4">
+    <section className="container mx-auto px-4 sm:px-6 py-20">
       <div className="rounded-[2rem] border border-border bg-card p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between shadow-soft">
         <div>
           <h2 className="text-2xl md:text-3xl font-display">Ready for a doctor who remembers your name?</h2>
