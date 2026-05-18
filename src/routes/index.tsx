@@ -75,23 +75,25 @@ function HeroSlider() {
   const go = (d: number) => setI((v) => (v + d + SLIDES.length) % SLIDES.length);
 
   return (
-    <section className="relative isolate overflow-hidden">
-      <div className="relative h-[88vh] min-h-[620px] w-full">
+    <section className="relative isolate">
+      <div className="relative h-screen min-h-[600px] w-full overflow-hidden">
         {SLIDES.map((s, idx) => (
           <div
             key={idx}
             className={`absolute inset-0 transition-opacity duration-1000 ${idx === i ? "opacity-100" : "opacity-0"}`}
             aria-hidden={idx !== i}
           >
-            <img
-              src={s.img}
-              alt=""
-              className={`absolute inset-0 size-full object-cover ${idx === i ? "animate-ken" : ""}`}
-              width={1920}
-              height={1080}
-              loading={idx === 0 ? "eager" : "lazy"}
-              fetchPriority={idx === 0 ? "high" : undefined}
-            />
+            <div className="absolute inset-0 overflow-hidden">
+              <img
+                src={s.img}
+                alt=""
+                className={`absolute inset-0 min-w-full min-h-full object-cover ${idx === i ? "animate-ken" : ""}`}
+                width={1920}
+                height={1080}
+                loading={idx === 0 ? "eager" : "lazy"}
+                fetchPriority={idx === 0 ? "high" : undefined}
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-ink/20" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
           </div>

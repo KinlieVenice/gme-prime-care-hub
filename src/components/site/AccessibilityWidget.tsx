@@ -102,7 +102,7 @@ export function AccessibilityWidget() {
 
       {open && (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center sm:justify-end" role="dialog" aria-modal="true" aria-label="Accessibility Help Desk">
-          <button className="absolute inset-0 bg-ink/40 backdrop-blur-sm" onClick={() => setOpen(false)} aria-label="Close" />
+          <button className="absolute inset-0" onClick={() => setOpen(false)} aria-label="Close" />
           <div className="relative w-full sm:max-w-md sm:m-6 bg-card border border-border rounded-t-3xl sm:rounded-3xl shadow-card max-h-[92vh] overflow-y-auto">
             <div className="sticky top-0 z-10 bg-gradient-hero px-5 py-4 sm:rounded-t-3xl flex items-center justify-between" style={{ color: "white" }}>
               <div>
