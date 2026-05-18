@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
@@ -29,6 +30,11 @@ const TestimonialsRoute = TestimonialsRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/physicians/$slug': typeof PhysiciansSlugRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/physicians/$slug': typeof PhysiciansSlugRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/testimonials': typeof TestimonialsRoute
   '/physicians/$slug': typeof PhysiciansSlugRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/contact'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/testimonials'
     | '/physicians/$slug'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/contact'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/testimonials'
     | '/physicians/$slug'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/contact'
     | '/privacy'
+    | '/sitemap.xml'
     | '/terms'
     | '/testimonials'
     | '/physicians/$slug'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   ContactRoute: typeof ContactRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   PhysiciansSlugRoute: typeof PhysiciansSlugRoute
@@ -187,6 +200,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccessibilityRoute: AccessibilityRoute,
   ContactRoute: ContactRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
   PhysiciansSlugRoute: PhysiciansSlugRoute,
