@@ -57,7 +57,7 @@ function ServicePage() {
           <div className="mt-10 rounded-3xl bg-mist p-8">
             <div className="text-xs uppercase tracking-[0.25em] text-tertiary font-semibold">What's included</div>
             <ul className="mt-4 grid sm:grid-cols-2 gap-3">
-              {s.bullets.map((b) => (
+              {s.bullets.map((b: string) => (
                 <li key={b} className="flex gap-2.5 text-sm">
                   <CheckCircle2 className="size-5 text-tertiary shrink-0" />
                   <span>{b}</span>

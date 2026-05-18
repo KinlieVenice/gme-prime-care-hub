@@ -57,7 +57,7 @@ function PhysicianPage() {
           <div className="mt-6 rounded-2xl border border-border bg-card p-5 shadow-soft">
             <div className="text-xs uppercase tracking-widest text-tertiary font-semibold mb-3">Credentials</div>
             <ul className="space-y-2">
-              {p.credentials.map((c) => (
+              {p.credentials.map((c: string) => (
                 <li key={c} className="flex gap-2 text-sm">
                   <BadgeCheck className="size-4 text-primary shrink-0 mt-0.5" />
                   <span>{c}</span>
@@ -70,7 +70,7 @@ function PhysicianPage() {
           <p className="text-xs uppercase tracking-[0.3em] text-tertiary font-semibold">{p.title}</p>
           <h1 className="mt-2 text-4xl md:text-6xl font-display leading-[1.05]">{p.name}</h1>
           <div className="mt-6 space-y-4 text-foreground/85 leading-relaxed text-[17px]">
-            {p.bio.map((para, i) => <p key={i}>{para}</p>)}
+            {p.bio.map((para: string, i: number) => <p key={i}>{para}</p>)}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-brand font-semibold shadow-glow" style={{ color: "white" }}>
