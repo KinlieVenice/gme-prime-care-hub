@@ -430,16 +430,14 @@ function InsuranceSection() {
             </p>
             <button
               onClick={() => setOpen(true)}
-              className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-tertiary text-tertiary-foreground font-semibold hover:opacity-95"
+              className={ctaClass({ variant: "solid", size: "lg", className: "mt-6" })}
             >
-              View full network list <ArrowRight className="size-4" />
+              View full network list <ArrowRight />
             </button>
           </div>
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {INSURANCE_FEATURED.map((n) => (
-              <div key={n} className="aspect-[5/3] rounded-2xl bg-card border border-border shadow-soft grid place-items-center text-center p-4">
-                <span className="text-sm font-semibold text-tertiary">{n}</span>
-              </div>
+              <InsuranceLogoCard key={n} name={n} />
             ))}
           </div>
         </div>
