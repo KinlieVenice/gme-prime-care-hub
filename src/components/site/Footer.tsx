@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CalendarCheck } from "lucide-react";
 import { Logo } from "./Logo";
+import { ctaClass } from "./CTAButton";
 import { CLINIC } from "@/lib/site-data";
 
 export function Footer() {
@@ -14,12 +15,12 @@ export function Footer() {
               A small, physician-owned practice in Las Vegas. Every visit, every decision —
               handled by a board-certified doctor who knows your name.
             </p>
-            <div className="flex gap-3 pt-2">
-              <a href={CLINIC.phoneHref} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-sm hover:border-primary">
-                <Phone className="size-4 text-tertiary" /> {CLINIC.phone}
+            <div className="flex flex-wrap gap-2 pt-2">
+              <a href={CLINIC.phoneHref} className={ctaClass({ variant: "outline", size: "sm" })}>
+                <Phone /> {CLINIC.phone}
               </a>
-              <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-brand text-sm font-semibold" style={{ color: "white" }}>
-                Book Now
+              <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className={ctaClass({ variant: "primary", size: "sm" })}>
+                <CalendarCheck /> Book Now
               </a>
             </div>
           </div>
