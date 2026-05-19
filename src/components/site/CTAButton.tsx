@@ -75,5 +75,9 @@ export const CTAButton = React.forwardRef<HTMLElement, CTAButtonProps>(
 CTAButton.displayName = "CTAButton";
 
 /** Convenience className helper – preferred for TanStack <Link to=...> usage. */
-export const ctaClass = (props?: CTAVariantProps & { className?: string }) =>
-  cn(ctaVariants(props), props?.className);
+export const ctaClass = (
+  props?: CTAVariantProps & { className?: string }
+) => {
+  const { className, ...variants } = props ?? {};
+  return cn(ctaVariants(variants), className);
+};
