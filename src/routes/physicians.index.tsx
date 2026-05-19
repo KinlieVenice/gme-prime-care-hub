@@ -84,21 +84,12 @@ function PhysiciansIndex() {
                       </span>
                     </div>
                   </div>
-                  {/* Floating credential tag */}
-                  <div className="hidden sm:flex absolute -bottom-5 -right-3 lg:right-auto lg:-left-6 items-center gap-2 bg-card border border-border rounded-2xl shadow-card px-4 py-3 max-w-[14rem]">
-                    <GraduationCap className="size-5 text-tertiary shrink-0" />
-                    <div className="text-xs leading-snug">
-                      <div className="font-semibold text-foreground">GME Director</div>
-                      <div className="text-muted-foreground">Mentoring future doctors</div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
               {/* Text side */}
               <div className={`lg:col-span-7 ${reverse ? "lg:order-1" : ""}`}>
                 <div className="flex items-center gap-3">
-                  <span className="font-display text-5xl md:text-6xl text-gradient leading-none">0{idx + 1}</span>
                   <div className="h-px flex-1 bg-border" />
                   <span className="text-xs uppercase tracking-[0.25em] text-tertiary font-semibold">{p.title.split("·")[0].trim()}</span>
                 </div>
