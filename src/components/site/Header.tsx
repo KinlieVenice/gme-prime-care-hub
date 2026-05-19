@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Phone, ChevronDown, CalendarCheck } from "lucide-react";
 import { Logo } from "./Logo";
+import { ctaClass } from "./CTAButton";
 import { CLINIC, SERVICES } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -165,17 +166,16 @@ export function Header() {
               </div>
             ))}
             <div className="flex gap-2 pt-3">
-              <a href={CLINIC.phoneHref} className="flex-1 text-center px-4 py-3 rounded-xl bg-mist text-tertiary font-medium">
-                {CLINIC.phone}
+              <a href={CLINIC.phoneHref} className={ctaClass({ variant: "outline", size: "md", block: true })}>
+                <Phone /> {CLINIC.phone}
               </a>
               <a
                 href={CLINIC.bookingUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 text-center px-4 py-3 rounded-xl bg-gradient-brand font-semibold"
-                style={{ color: "white" }}
+                className={ctaClass({ variant: "primary", size: "md", block: true })}
               >
-                Book Now
+                <CalendarCheck /> Book Now
               </a>
             </div>
           </nav>
