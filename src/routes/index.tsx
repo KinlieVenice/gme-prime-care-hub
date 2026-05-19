@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Stethoscope, Sparkles, ShieldCheck, UserCheck, ArrowRight, CalendarCheck,
-  Phone, Star, Quote, ChevronLeft, ChevronRight, X,
+  Phone, Star, Quote, ChevronLeft, ChevronRight, X, BadgeCheck, GraduationCap,
 } from "lucide-react";
 import heroClinic from "@/assets/hero-clinic.jpg";
 import heroConsult from "@/assets/hero-consult.jpg";
@@ -13,6 +13,8 @@ import {
   CLINIC, SERVICES, PHYSICIANS, AFFILIATIONS,
   INSURANCE_FEATURED, INSURANCE_ALL, TESTIMONIALS,
 } from "@/lib/site-data";
+import { ctaClass } from "@/components/site/CTAButton";
+import { InsuranceLogoCard } from "@/components/site/InsuranceLogoCard";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -115,15 +117,15 @@ function HeroSlider() {
                 href={CLINIC.bookingUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-brand font-semibold shadow-glow hover:scale-[1.02] transition"
+                className={ctaClass({ variant: "primary", size: "lg" })}
               >
-                <CalendarCheck className="size-5" /> Book Now
+                <CalendarCheck /> Book Now
               </a>
               <a
                 href={CLINIC.phoneHref}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 backdrop-blur border border-white/25 font-medium hover:bg-white/15"
+                className={ctaClass({ variant: "glass", size: "lg" })}
               >
-                <Phone className="size-5" /> {CLINIC.phone}
+                <Phone /> {CLINIC.phone}
               </a>
             </div>
           </div>
@@ -238,16 +240,10 @@ function AboutSection() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-tertiary text-tertiary-foreground font-semibold hover:opacity-95"
-              >
-                Read our full story <ArrowRight className="size-4" />
+              <Link to="/about" className={ctaClass({ variant: "solid", size: "lg" })}>
+                Read our full story <ArrowRight />
               </Link>
-              <Link
-                to="/physicians"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-tertiary font-medium"
-              >
+              <Link to="/physicians" className={ctaClass({ variant: "outline", size: "lg" })}>
                 Meet the physicians
               </Link>
             </div>
@@ -262,47 +258,81 @@ function AboutSection() {
 /* ---------------- PHYSICIANS ---------------- */
 function PhysiciansSection() {
   return (
-    <section className="bg-gradient-soft">
-      <div className="container mx-auto px-4 sm:px-6 py-20 md:py-28">
-        <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.3em] text-tertiary font-semibold">Our Physicians</p>
-          <h2 className="mt-3 text-3xl md:text-5xl font-display leading-[1.1]">Two doctors. One philosophy.</h2>
-          <p className="mt-4 text-muted-foreground">Both board-certified. Both Directors of Graduate Medical Education. Both here to know your name.</p>
+    <section className="relative bg-gradient-soft overflow-hidden">
+      <div aria-hidden className="absolute -top-32 -left-24 size-[28rem] rounded-full bg-primary/15 blur-3xl" />
+      <div aria-hidden className="absolute -bottom-32 -right-24 size-[28rem] rounded-full bg-accent/20 blur-3xl" />
+
+      <div className="relative container mx-auto px-4 sm:px-6 py-20 md:py-28">
+        <div className="grid lg:grid-cols-12 gap-8 items-end mb-14">
+          <div className="lg:col-span-7">
+            <p className="text-xs uppercase tracking-[0.3em] text-tertiary font-semibold">Our Physicians</p>
+            <h2 className="mt-3 text-3xl md:text-5xl font-display leading-[1.05] text-balance">
+              Meet the doctors who will <span className="text-gradient">actually treat you.</span>
+            </h2>
+          </div>
+          <p className="lg:col-span-5 text-muted-foreground leading-relaxed">
+            Both board-certified internists. Both Directors of Graduate Medical Education at Valley Hospital. Both here, every visit — never a stand-in.
+          </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6 lg:gap-8">
-          {PHYSICIANS.map((p) => (
-            <Link
-              key={p.slug}
-              to="/physicians/$slug"
-              params={{ slug: p.slug }}
-              className="group relative rounded-3xl overflow-hidden bg-card border border-border shadow-soft hover:shadow-card transition"
-            >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src={p.slug === "dr-mark-lopez" ? drMark : drScott}
-                  alt={p.name}
-                  loading="lazy"
-                  width={800} height={1000}
-                  className="size-full object-cover group-hover:scale-105 transition duration-700"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-7" style={{ color: "white" }}>
-                <div className="text-xs uppercase tracking-[0.25em] opacity-80">{p.title.split("·")[0]}</div>
-                <h3 className="font-display text-2xl md:text-3xl mt-1">{p.name}</h3>
-                <p className="text-sm text-white/85 mt-2 line-clamp-3 max-w-md">{p.short}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium">
-                  View profile <ArrowRight className="size-4 group-hover:translate-x-1 transition" />
-                </span>
-              </div>
-            </Link>
-          ))}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-10">
+          {PHYSICIANS.map((p, idx) => {
+            const img = p.slug === "dr-mark-lopez" ? drMark : drScott;
+            const role = p.title.split("·")[0].trim();
+            const sub = p.title.split("·").slice(1).join(" · ").trim();
+            return (
+              <article key={p.slug} className="group relative">
+                <div className="absolute -top-6 -left-2 font-display text-7xl md:text-8xl text-gradient opacity-25 select-none pointer-events-none">
+                  0{idx + 1}
+                </div>
+
+                <div className="relative rounded-[2rem] bg-card border border-border shadow-soft overflow-hidden hover:shadow-card transition">
+                  <div className="grid grid-cols-5 min-h-[20rem]">
+                    <div className="col-span-2 relative overflow-hidden">
+                      <img
+                        src={img}
+                        alt={p.name}
+                        loading="lazy"
+                        width={800}
+                        height={1000}
+                        className="absolute inset-0 size-full object-cover group-hover:scale-105 transition duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
+                      <span className="absolute top-3 left-3 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wider bg-white/85 backdrop-blur text-tertiary rounded-full px-2 py-1">
+                        <BadgeCheck className="size-3" /> Certified
+                      </span>
+                    </div>
+
+                    <div className="col-span-3 p-5 sm:p-6 flex flex-col">
+                      <div className="text-[11px] uppercase tracking-[0.2em] text-tertiary font-semibold">{role}</div>
+                      <h3 className="font-display text-xl sm:text-2xl mt-1 leading-tight">{p.name}</h3>
+                      {sub && <div className="text-xs text-muted-foreground mt-1 leading-snug">{sub}</div>}
+
+                      <p className="text-sm text-foreground/75 mt-3 leading-relaxed line-clamp-4 flex-1">{p.short}</p>
+
+                      <div className="mt-4 pt-4 border-t border-border flex items-center gap-3 text-xs text-muted-foreground">
+                        <GraduationCap className="size-4 text-tertiary shrink-0" />
+                        <span className="leading-snug">{p.credentials[0]}</span>
+                      </div>
+
+                      <Link
+                        to="/physicians/$slug"
+                        params={{ slug: p.slug }}
+                        className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-tertiary hover:gap-2.5 transition-all"
+                      >
+                        View full profile <ArrowRight className="size-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
 
-        <div className="mt-10 text-center">
-          <Link to="/physicians" className="inline-flex items-center gap-2 text-tertiary font-semibold hover:underline">
-            Meet the full team <ArrowRight className="size-4" />
+        <div className="mt-12 flex justify-center">
+          <Link to="/physicians" className={ctaClass({ variant: "outline", size: "lg" })}>
+            Meet the full team <ArrowRight />
           </Link>
         </div>
       </div>
@@ -400,16 +430,14 @@ function InsuranceSection() {
             </p>
             <button
               onClick={() => setOpen(true)}
-              className="mt-6 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-tertiary text-tertiary-foreground font-semibold hover:opacity-95"
+              className={ctaClass({ variant: "solid", size: "lg", className: "mt-6" })}
             >
-              View full network list <ArrowRight className="size-4" />
+              View full network list <ArrowRight />
             </button>
           </div>
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
             {INSURANCE_FEATURED.map((n) => (
-              <div key={n} className="aspect-[5/3] rounded-2xl bg-card border border-border shadow-soft grid place-items-center text-center p-4">
-                <span className="text-sm font-semibold text-tertiary">{n}</span>
-              </div>
+              <InsuranceLogoCard key={n} name={n} />
             ))}
           </div>
         </div>
@@ -522,11 +550,11 @@ function CtaBand() {
           <p className="mt-2 text-muted-foreground">Same-week appointments often available. New patients welcome.</p>
         </div>
         <div className="flex gap-3 flex-wrap">
-          <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-brand font-semibold shadow-glow" style={{ color: "white" }}>
-            <CalendarCheck className="size-5" /> Book Now
+          <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className={ctaClass({ variant: "primary", size: "lg" })}>
+            <CalendarCheck /> Book Now
           </a>
-          <a href={CLINIC.phoneHref} className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border hover:border-tertiary font-medium">
-            <Phone className="size-5 text-tertiary" /> {CLINIC.phone}
+          <a href={CLINIC.phoneHref} className={ctaClass({ variant: "outline", size: "lg" })}>
+            <Phone /> {CLINIC.phone}
           </a>
         </div>
       </div>

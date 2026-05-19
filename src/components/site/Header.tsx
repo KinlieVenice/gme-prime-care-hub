@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, Phone, ChevronDown, CalendarCheck } from "lucide-react";
 import { Logo } from "./Logo";
+import { ctaClass } from "./CTAButton";
 import { CLINIC, SERVICES } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -116,18 +117,17 @@ export function Header() {
           <div className="flex items-center gap-2">
             <a
               href={CLINIC.phoneHref}
-              className="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-tertiary hover:bg-mist"
+              className={ctaClass({ variant: "subtle", size: "sm", className: "hidden md:inline-flex" })}
             >
-              <Phone className="size-4" /> {CLINIC.phone}
+              <Phone /> {CLINIC.phone}
             </a>
             <a
               href={CLINIC.bookingUrl}
               target="_blank"
               rel="noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold bg-gradient-brand text-tertiary-foreground shadow-glow hover:opacity-95 transition"
-              style={{ color: "white" }}
+              className={ctaClass({ variant: "primary", size: "sm", className: "hidden sm:inline-flex" })}
             >
-              <CalendarCheck className="size-4" /> Book Now
+              <CalendarCheck /> Book Now
             </a>
             <button
               type="button"
@@ -166,17 +166,16 @@ export function Header() {
               </div>
             ))}
             <div className="flex gap-2 pt-3">
-              <a href={CLINIC.phoneHref} className="flex-1 text-center px-4 py-3 rounded-xl bg-mist text-tertiary font-medium">
-                {CLINIC.phone}
+              <a href={CLINIC.phoneHref} className={ctaClass({ variant: "outline", size: "md", block: true })}>
+                <Phone /> {CLINIC.phone}
               </a>
               <a
                 href={CLINIC.bookingUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 text-center px-4 py-3 rounded-xl bg-gradient-brand font-semibold"
-                style={{ color: "white" }}
+                className={ctaClass({ variant: "primary", size: "md", block: true })}
               >
-                Book Now
+                <CalendarCheck /> Book Now
               </a>
             </div>
           </nav>
