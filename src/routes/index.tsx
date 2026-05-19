@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Stethoscope, Sparkles, ShieldCheck, UserCheck, ArrowRight, CalendarCheck,
-  Phone, Star, Quote, ChevronLeft, ChevronRight, X,
+  Phone, Star, Quote, ChevronLeft, ChevronRight, X, BadgeCheck, GraduationCap,
 } from "lucide-react";
 import heroClinic from "@/assets/hero-clinic.jpg";
 import heroConsult from "@/assets/hero-consult.jpg";
@@ -13,6 +13,8 @@ import {
   CLINIC, SERVICES, PHYSICIANS, AFFILIATIONS,
   INSURANCE_FEATURED, INSURANCE_ALL, TESTIMONIALS,
 } from "@/lib/site-data";
+import { ctaClass } from "@/components/site/CTAButton";
+import { InsuranceLogoCard } from "@/components/site/InsuranceLogoCard";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -115,15 +117,15 @@ function HeroSlider() {
                 href={CLINIC.bookingUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-brand font-semibold shadow-glow hover:scale-[1.02] transition"
+                className={ctaClass({ variant: "primary", size: "lg" })}
               >
-                <CalendarCheck className="size-5" /> Book Now
+                <CalendarCheck /> Book Now
               </a>
               <a
                 href={CLINIC.phoneHref}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 backdrop-blur border border-white/25 font-medium hover:bg-white/15"
+                className={ctaClass({ variant: "glass", size: "lg" })}
               >
-                <Phone className="size-5" /> {CLINIC.phone}
+                <Phone /> {CLINIC.phone}
               </a>
             </div>
           </div>
@@ -238,16 +240,10 @@ function AboutSection() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-tertiary text-tertiary-foreground font-semibold hover:opacity-95"
-              >
-                Read our full story <ArrowRight className="size-4" />
+              <Link to="/about" className={ctaClass({ variant: "solid", size: "lg" })}>
+                Read our full story <ArrowRight />
               </Link>
-              <Link
-                to="/physicians"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-tertiary font-medium"
-              >
+              <Link to="/physicians" className={ctaClass({ variant: "outline", size: "lg" })}>
                 Meet the physicians
               </Link>
             </div>
