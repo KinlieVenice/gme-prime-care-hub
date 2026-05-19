@@ -550,11 +550,11 @@ function CtaBand() {
           <p className="mt-2 text-muted-foreground">Same-week appointments often available. New patients welcome.</p>
         </div>
         <div className="flex gap-3 flex-wrap">
-          <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-brand font-semibold shadow-glow" style={{ color: "white" }}>
-            <CalendarCheck className="size-5" /> Book Now
+          <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className={ctaClass({ variant: "primary", size: "lg" })}>
+            <CalendarCheck /> Book Now
           </a>
-          <a href={CLINIC.phoneHref} className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-border hover:border-tertiary font-medium">
-            <Phone className="size-5 text-tertiary" /> {CLINIC.phone}
+          <a href={CLINIC.phoneHref} className={ctaClass({ variant: "outline", size: "lg" })}>
+            <Phone /> {CLINIC.phone}
           </a>
         </div>
       </div>
