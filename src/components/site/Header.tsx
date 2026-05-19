@@ -116,18 +116,17 @@ export function Header() {
           <div className="flex items-center gap-2">
             <a
               href={CLINIC.phoneHref}
-              className="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium text-tertiary hover:bg-mist"
+              className={ctaClass({ variant: "subtle", size: "sm", className: "hidden md:inline-flex" })}
             >
-              <Phone className="size-4" /> {CLINIC.phone}
+              <Phone /> {CLINIC.phone}
             </a>
             <a
               href={CLINIC.bookingUrl}
               target="_blank"
               rel="noreferrer"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold bg-gradient-brand text-tertiary-foreground shadow-glow hover:opacity-95 transition"
-              style={{ color: "white" }}
+              className={ctaClass({ variant: "primary", size: "sm", className: "hidden sm:inline-flex" })}
             >
-              <CalendarCheck className="size-4" /> Book Now
+              <CalendarCheck /> Book Now
             </a>
             <button
               type="button"
