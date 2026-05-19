@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, CalendarCheck, Phone, BadgeCheck } from "lucide-react";
 import { CLINIC, PHYSICIANS, type PhysicianSlug } from "@/lib/site-data";
+import { ctaClass } from "@/components/site/CTAButton";
 import drScott from "@/assets/dr-scott.jpg";
 import drMark from "@/assets/dr-mark.png";
 
@@ -73,11 +74,11 @@ function PhysicianPage() {
             {p.bio.map((para: string, i: number) => <p key={i}>{para}</p>)}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-brand font-semibold shadow-glow" style={{ color: "white" }}>
-              <CalendarCheck className="size-4" /> Book with {p.name.split(" ")[1]}
+            <a href={CLINIC.bookingUrl} target="_blank" rel="noreferrer" className={ctaClass({ variant: "primary", size: "lg" })}>
+              <CalendarCheck /> Book with {p.name.split(" ")[1]}
             </a>
-            <a href={CLINIC.phoneHref} className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-border hover:border-tertiary font-medium">
-              <Phone className="size-4 text-tertiary" /> {CLINIC.phone}
+            <a href={CLINIC.phoneHref} className={ctaClass({ variant: "outline", size: "lg" })}>
+              <Phone /> {CLINIC.phone}
             </a>
           </div>
         </div>
