@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8090:8090"
+    environment:
+      - PORT=8090
+      - HOST=0.0.0.0
+      - NITRO_PORT=8090
+      - NITRO_HOST=0.0.0.0
