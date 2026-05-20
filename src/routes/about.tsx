@@ -21,7 +21,7 @@ function AboutPage() {
   return (
     <>
       <section className="relative bg-gradient-hero" style={{ color: "white" }}>
-        <div className="container mx-auto px-4 sm:px-6 py-20 md:py-28">
+        <div className="container mx-auto px-4 sm:px-6 pt-36 md:pt-44 lg:pt-48 pb-20 md:pb-28">
           <p className="text-xs uppercase tracking-[0.3em] opacity-80">About Us</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-display max-w-3xl leading-[1.05]">
             A small clinic with a big-picture view of your health.
