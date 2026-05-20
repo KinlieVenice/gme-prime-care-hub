@@ -22,7 +22,7 @@ function ContactPage() {
   return (
     <>
       <section className="bg-gradient-hero" style={{ color: "white" }}>
-        <div className="container mx-auto px-4 sm:px-6 py-20 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 pt-36 md:pt-40 lg:pt-44 pb-20 md:pb-24">
           <p className="text-xs uppercase tracking-[0.3em] opacity-80">Contact</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-display max-w-3xl leading-[1.05]">We'd love to hear from you.</h1>
           <p className="mt-5 text-white/85 max-w-2xl text-lg">Call us, email us, or stop by Shadow Lane. A real person — usually at the front desk by 8 AM.</p>

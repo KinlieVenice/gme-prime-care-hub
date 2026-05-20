@@ -16,7 +16,7 @@ export const Route = createFileRoute("/accessibility")({
 
 function AccessibilityPage() {
   return (
-    <article className="container mx-auto px-4 sm:px-6 py-20 max-w-3xl">
+    <article className="container mx-auto px-4 sm:px-6 pt-36 md:pt-40 lg:pt-44 pb-20 max-w-3xl">
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-mist text-tertiary text-xs uppercase tracking-[0.25em] font-semibold">
         <Accessibility className="size-3.5" /> Accessibility
       </div>

@@ -43,7 +43,7 @@ function PhysicianPage() {
   return (
     <>
       <section className="bg-gradient-soft border-b border-border">
-        <div className="container mx-auto px-4 sm:px-6 py-10">
+        <div className="container mx-auto px-4 sm:px-6 pt-32 md:pt-36 lg:pt-40 pb-10">
           <Link to="/physicians" className="inline-flex items-center gap-1.5 text-sm text-tertiary font-medium hover:underline">
             <ArrowLeft className="size-4" /> All physicians
           </Link>
