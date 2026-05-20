@@ -15,7 +15,7 @@ export const Route = createFileRoute("/terms")({
 
 function TermsPage() {
   return (
-    <article className="container mx-auto px-4 sm:px-6 py-20 max-w-3xl">
+    <article className="container mx-auto px-4 sm:px-6 pt-36 md:pt-40 lg:pt-44 pb-20 max-w-3xl">
       <p className="text-xs uppercase tracking-[0.3em] text-tertiary font-semibold">Legal</p>
       <h1 className="mt-2 text-4xl md:text-5xl font-display">Terms & Conditions</h1>
       <p className="text-sm text-muted-foreground">Last updated: {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}</p>
