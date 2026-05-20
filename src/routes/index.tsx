@@ -101,8 +101,8 @@ function HeroSlider() {
           </div>
         ))}
 
-        <div className="relative h-full container mx-auto px-4 sm:px-6 flex items-center">
-          <div className="max-w-2xl" style={{ color: "white" }}>
+        <div className="relative h-full container mx-auto px-4 sm:px-6 flex items-center pt-28 ">
+          <div className="max-w-3xl" style={{ color: "white" }}>
             <div key={`eyebrow-${i}`} className="animate-fade-up inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/15 text-xs uppercase tracking-[0.25em]">
               <span className="size-1.5 rounded-full bg-primary" /> {SLIDES[i].eyebrow}
             </div>
