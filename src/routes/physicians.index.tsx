@@ -28,7 +28,7 @@ function PhysiciansIndex() {
       <section className="relative bg-gradient-hero overflow-hidden" style={{ color: "white" }}>
         <div className="absolute -top-32 -right-24 size-[28rem] rounded-full bg-primary/30 blur-3xl" aria-hidden />
         <div className="absolute -bottom-32 -left-24 size-[28rem] rounded-full bg-accent/25 blur-3xl" aria-hidden />
-        <div className="relative container mx-auto px-4 sm:px-6 py-20 md:py-28 grid lg:grid-cols-12 gap-10 items-end">
+        <div className="relative container mx-auto px-4 sm:px-6 pt-36 md:pt-44 lg:pt-48 pb-20 md:pb-28 grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-8">
             <p className="text-xs uppercase tracking-[0.3em] opacity-80">Our Physicians</p>
             <h1 className="mt-3 text-4xl md:text-6xl font-display leading-[1.02] max-w-3xl">
